@@ -1,18 +1,25 @@
 body {
-  background: #f0f0f0;
+  background: linear-gradient(145deg, #dfe9f3, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   font-family: 'Segoe UI', sans-serif;
+  margin: 0;
 }
 
 .calculator {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  transition: transform 0.3s ease;
+}
+
+.calculator:hover {
+  transform: scale(1.02);
 }
 
 #display {
@@ -20,27 +27,28 @@ body {
   height: 60px;
   font-size: 2rem;
   text-align: right;
-  padding: 10px;
+  padding: 15px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
+  background: #f1f1f1;
   margin-bottom: 20px;
-  background: #f9f9f9;
 }
 
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 
 button {
-  padding: 20px;
+  padding: 18px;
   font-size: 1.2rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #e0e0e0;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 5px #c1c1c1, -2px -2px 5px #ffffff;
 }
 
 button:hover {
@@ -48,5 +56,55 @@ button:hover {
 }
 
 button:active {
-  background: #c8c8c8;
+  transform: scale(0.96);
+  box-shadow: inset 2px 2px 5px #c1c1c1, inset -2px -2px 5px #ffffff;
+}
+
+.operator {
+  background: #ff9f43;
+  color: #fff;
+}
+
+.operator:hover {
+  background: #ffa94d;
+}
+
+.equal {
+  background: #00c853;
+  color: #fff;
+  grid-column: span 2;
+}
+
+.equal:hover {
+  background: #00e676;
+}
+
+.clear {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.clear:hover {
+  background: #e53935;
+}
+
+.delete {
+  background: #6a1b9a;
+  color: #fff;
+}
+
+.delete:hover {
+  background: #8e24aa;
+}
+
+@media (max-width: 400px) {
+  .calculator {
+    width: 90%;
+    padding: 15px;
+  }
+
+  button {
+    padding: 16px;
+    font-size: 1rem;
+  }
 }
